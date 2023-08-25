@@ -62,9 +62,9 @@ class Telatermo {
 
     RegistrarEventos(): void {
         for (let botao of this.pnlTeclado.children) {
+
             if (botao.textContent != "↤" && botao.textContent != 'Enter')
                 botao.addEventListener("click", (sender) => this.darPalpite(sender));
-
         }
 
         this.btnEnter.addEventListener('click', () => this.ConfirmarPalpite());
@@ -81,7 +81,7 @@ class Telatermo {
             const letraDiv = linhaDiv.querySelectorAll('.letra')[this.letraLinha - 1]; // Seleciona a div "letra" correta
             letraDiv.textContent = "";
 
-
+            this.msgFinal.textContent = "";
         }
     }
 
@@ -189,6 +189,7 @@ class Telatermo {
     }
 
     DarDicas(letra: string, resultado: number, posicao: number) {
+
         const letrasDaLinha = this.linhas[this.linhaPalpite - 1].querySelectorAll('.letra');
 
         letrasDaLinha.forEach((letraDiv, index) => {
@@ -225,6 +226,8 @@ class Telatermo {
     }
 
     darPalpite(sender: Event): void {
+
+        this.msgFinal.textContent = "";
 
         const botaoClicado = sender.target as HTMLButtonElement;
         const palpite = botaoClicado.textContent;

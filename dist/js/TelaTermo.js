@@ -60,6 +60,7 @@ class Telatermo {
             this.letraLinha--;
             const letraDiv = linhaDiv.querySelectorAll('.letra')[this.letraLinha - 1]; // Seleciona a div "letra" correta
             letraDiv.textContent = "";
+            this.msgFinal.textContent = "";
         }
     }
     ConfirmarPalpite() {
@@ -173,6 +174,7 @@ class Telatermo {
     }
     darPalpite(sender) {
         var _a;
+        this.msgFinal.textContent = "";
         const botaoClicado = sender.target;
         const palpite = botaoClicado.textContent;
         if (((_a = botaoClicado.textContent) === null || _a === void 0 ? void 0 : _a.length) == 1) {
